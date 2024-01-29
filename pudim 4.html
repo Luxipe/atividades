@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Estilos e Layout</title>
+    <style>
+        #meuElemento {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 0, 0);
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="meuElemento"></div>
+    <button onclick="alterarEstilo()">Alterar Estilo</button>
+
+    <script>
+        function alterarEstilo() {
+            const meuElemento = document.getElementById('meuElemento');
+
+            if (meuElemento.style.backgroundColor === 'lightblue') {
+                meuElemento.style.backgroundColor = 'lightcoral';
+            } else {
+                meuElemento.style.backgroundColor = 'lightblue';
+            }
+        }
+
+        function ajustarLayout() {
+            const meuElemento = document.getElementById('meuElemento');
+            const larguraJanela = window.innerWidth;
+
+            if (larguraJanela < 600) {
+                // Se a largura da janela for menor que 600 pixels, altera o estilo do elemento
+                meuElemento.style.backgroundColor = 'lightgreen';
+            } else {
+                // Caso contrário, restaura o estilo original
+                meuElemento.style.backgroundColor = 'rgb(255, 0, 0)';
+            }
+        }
+
+        // Adiciona um ouvinte de evento para o redimensionamento da janela
+        window.addEventListener('resize', ajustarLayout);
+
+        // Chama a função inicialmente para ajustar o layout quando a página é carregada
+        ajustarLayout();
+    </script>
+</body>
+</html>
